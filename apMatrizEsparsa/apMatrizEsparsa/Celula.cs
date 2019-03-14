@@ -8,5 +8,9 @@ namespace apMatrizEsparsa
 {
     class Celula
     {
+        Celula direita;
+        Celula abaixo;
+        int linha, coluna;
+        double valor;
     }
 }
