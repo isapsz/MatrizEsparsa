@@ -52,6 +52,8 @@
     <Compile Include="frmMatrizEsparsa.Designer.cs">
       <DependentUpon>frmMatrizEsparsa.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaCircular.cs" />
+    <Compile Include="NoLista.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMatrizEsparsa.resx">

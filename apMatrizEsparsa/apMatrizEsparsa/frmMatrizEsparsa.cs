@@ -16,5 +16,12 @@ namespace apMatrizEsparsa
         {
             InitializeComponent();
         }
+
+        ListaCircular x;
+        ListaCircular y;
+        private void frmMatrizEsparsa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

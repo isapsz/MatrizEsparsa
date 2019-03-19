@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(550, 358);
             this.Name = "frmMatrizEsparsa";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmMatrizEsparsa_Load);
             this.ResumeLayout(false);
 
         }

@@ -13,67 +13,48 @@ namespace apMatrizEsparsa
         private int linha, coluna;
         private double valor;
 
-        public Celula(double valor, int linha, int coluna)
+        public Celula(double valor, int linha, int coluna, Celula d, Celula a)
         {
             Valor = valor;
             Linha = linha;
             Coluna = coluna;
+            Direita = d;
+            Abaixo = a;
         }
 
         public double Valor
        {
             get => valor;
-            set
-            {
-                if (value != null)
-                    valor = value;
-            }
+            set => valor = value;
        }
 
         public int Linha
         {
             get => linha;
-            set
-            {
-                if (value != null)
-                    linha = value;
-            }
+            set =>  linha = value;
         }
 
         public int Coluna
         {
             get => coluna;
-            set
-            {
-                if (value != null)
-                    coluna = value;
-            }
+            set => coluna = value;
         }
 
         public Celula Direita
         {
             get => direita;
-            set
-            {
-                if (value != null)
-                    direita = value;
-            }
+            set => direita = value;
         }
 
         public Celula Abaixo
         {
             get => abaixo;
-            set
-            {
-                if (value != null)
-                    abaixo = value;
-            }
+            set => abaixo = value;
         }
 
         public override string ToString()
         {
-            return Valor + ", " + Linha + ", " + Coluna;
+            return Valor + "  [" + Linha + ", " + Coluna + "]";
         }
-
     }
 }
