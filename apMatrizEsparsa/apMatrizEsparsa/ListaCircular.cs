@@ -10,24 +10,24 @@ namespace apMatrizEsparsa
     {
         protected Celula cabeca, atual, anterior;
         protected int qtd;
-        protected int linhas, colunas;
+        protected int tamanhoLinhas, tamanhoColunas;
 
         public ListaCircular(int l, int c)
         {
-            cabeca = new Celula(0, -1, -1, null, null);
+            cabeca = new Celula(0, -1, -1);
 
             cabeca.Direita = cabeca;
 
-            this.linhas = l;
-            this.colunas = c;
+            this.tamanhoLinhas = l;
+            this.tamanhoColunas = c;
 
             qtd = 0;
 
             Celula p = cabeca;
             
-            for(int i =0; i< linhas; i++)
+            for(int i =0; i< tamanhoLinhas; i++)
             {
-                Celula linhaCabeca = new Celula(0, i, -1, null, null);
+                Celula linhaCabeca = new Celula(0, i, -1);
 
                 p.Abaixo = linhaCabeca;
                 p = p.Abaixo;
@@ -37,9 +37,9 @@ namespace apMatrizEsparsa
 
             p = cabeca;
 
-            for (int i = 0; i < colunas; i++)
+            for (int i = 0; i < tamanhoColunas; i++)
             {
-                Celula colunaCabeca = new Celula(0, -1, i, null, null);
+                Celula colunaCabeca = new Celula(0, -1, i);
 
                 p.Direita = colunaCabeca;
                 p = p.Direita;
@@ -48,10 +48,14 @@ namespace apMatrizEsparsa
             p.Direita = cabeca;
 
         }
-
-        public void InserirElemento(double valor, int linha,  int coluna)
+        protected Celula criarCelula(double valor, int linha, int coluna)
         {
-            if (linha < 0 || coluna < 0 || linha > linhas || coluna > colunas)
+            return new Celula(valor, linha, coluna);
+        }
+
+        public void InserirElemento(double valor, int linha, int coluna)
+        {
+            if (linha < 0 || coluna < 0 || linha > tamanhoLinhas || coluna > tamanhoColunas)
                 throw new Exception("Local de inserção não disponível");
 
             if (valor == 0)

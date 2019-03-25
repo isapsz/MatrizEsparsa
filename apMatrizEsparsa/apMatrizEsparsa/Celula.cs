@@ -8,30 +8,28 @@ namespace apMatrizEsparsa
 {
     class Celula
     {
-        private Celula direita;
-        private Celula abaixo;
-        private int linha, coluna;
-        private double valor;
+        protected Celula direita;
+        protected Celula abaixo;
+        protected int linha, coluna;
+        protected double valor;
 
-        public Celula(double valor, int linha, int coluna, Celula d, Celula a)
+        public Celula(double valor, int linha, int coluna)
         {
             Valor = valor;
             Linha = linha;
             Coluna = coluna;
-            Direita = d;
-            Abaixo = a;
         }
 
         public double Valor
-       {
+        {
             get => valor;
             set => valor = value;
-       }
+        }
 
         public int Linha
         {
             get => linha;
-            set =>  linha = value;
+            set => linha = value;
         }
 
         public int Coluna
