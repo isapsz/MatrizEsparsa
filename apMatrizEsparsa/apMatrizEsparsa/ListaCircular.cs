@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace apMatrizEsparsa
 {
@@ -92,10 +93,10 @@ namespace apMatrizEsparsa
 
             Celula procura = cabeca;
 
-            for (int i = 0; i < linha; i++)
+            for (int i = -1; i < linha; i++)
                 procura = procura.Abaixo;
 
-            for (int i = 0; i < coluna; i++)
+            while (procura.Direita != procura && procura.Direita.Coluna < coluna && procura.Direita.Coluna != -1)
                 procura = procura.Direita;
 
             return procura.Valor;
@@ -105,5 +106,25 @@ namespace apMatrizEsparsa
         {
 
         }
+
+        public void Exibir(DataGridView dgv)
+        {
+            Celula p = cabeca;
+            dgv.RowCount = tamanhoLinhas;
+            dgv.ColumnCount = tamanhoColunas;
+
+            for (int i = 0; i < tamanhoLinhas; i++)
+                for (int x = 0; x < tamanhoColunas; x++)
+                    dgv.Rows[i].Cells[x].Value = ValorDe(i, x);
+
+           /*for (int l = 0; l < tamanhoLinhas; l++)
+            {
+                for (int c = 0; c < tamanhoColunas; c++)
+                {
+
+                        dgv.Rows[p.Linha].Cells[p.Coluna].Value =;
+                }
+            }    */
+        }        
     }
 }

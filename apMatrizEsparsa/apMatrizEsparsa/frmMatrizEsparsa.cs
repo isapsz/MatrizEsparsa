@@ -26,8 +26,8 @@ namespace apMatrizEsparsa
             matriz.InserirElemento(4, 1, 1);
             matriz.InserirElemento(3, 3, 1);
             matriz.InserirElemento(15, 2, 0);
-            Console.WriteLine("aaa");
-            Console.ReadLine();
+            textBox2.Text = matriz.ValorDe(2,0).ToString();
+            matriz.Exibir(dgvExibicao1);
         }
     }
 }
