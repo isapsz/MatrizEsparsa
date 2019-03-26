@@ -17,12 +17,17 @@ namespace apMatrizEsparsa
             InitializeComponent();
         }
 
-        ListaCircular x;
-        ListaCircular y;
+        ListaCircular matriz;
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
-           
+            matriz = new ListaCircular(4, 3);
+            matriz.InserirElemento(3, 2, 1);
+            matriz.InserirElemento(4, 1, 1);
+            matriz.InserirElemento(3, 3, 1);
+            matriz.InserirElemento(15, 2, 0);
+            Console.WriteLine("aaa");
+            Console.ReadLine();
         }
     }
 }
