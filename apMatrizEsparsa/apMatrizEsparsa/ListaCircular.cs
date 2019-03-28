@@ -62,9 +62,10 @@ namespace apMatrizEsparsa
 
         public void InserirElemento(double valor, int linha, int coluna)
         {
-             Celula nova = CriarCelula(valor, linha, coluna), cima = cabeca, esquerda = cabeca;
+            if (ValorDe(linha, coluna) == 0)
+                throw new Exception("Essa célula já existe");
 
-            //existe
+            Celula nova = CriarCelula(valor, linha, coluna), cima = cabeca, esquerda = cabeca;
 
             while (esquerda.Linha < nova.Linha && esquerda.Abaixo != esquerda)
                 esquerda = esquerda.Abaixo;
@@ -75,7 +76,7 @@ namespace apMatrizEsparsa
             while (cima.Coluna < nova.Coluna && cima.Direita != cima)
                 cima = cima.Direita;
 
-            while(cima.Abaixo.Linha < nova.Linha  && cima.Abaixo != cima && cima.Abaixo.Linha != -1 )
+            while(cima.Abaixo.Linha < nova.Linha  && cima.Abaixo != cima && cima.Abaixo.Linha != -1)
                  cima = cima.Abaixo;
 
             nova.Abaixo = cima.Abaixo;
@@ -93,17 +94,24 @@ namespace apMatrizEsparsa
 
             Celula procura = cabeca;
 
-            for (int i = -1; i < linha; i++)
+            while (procura.Linha < linha && procura.Abaixo != procura)
                 procura = procura.Abaixo;
 
-            while (procura.Direita != procura && procura.Direita.Coluna < coluna && procura.Direita.Coluna != -1)
+            while (procura.Coluna < coluna && procura.Direita.Coluna != -1)
                 procura = procura.Direita;
+
+            if (procura.Coluna != coluna)
+                return 0;
 
             return procura.Valor;
         }
 
-        public void RemoverElemento()
+        public void RemoverElemento(int linha, int coluna)
         {
+            if (ValorDe(linha, coluna) != 0)
+                throw new Exception("Essa célula não existe");
+
+
 
         }
 
@@ -116,15 +124,6 @@ namespace apMatrizEsparsa
             for (int i = 0; i < tamanhoLinhas; i++)
                 for (int x = 0; x < tamanhoColunas; x++)
                     dgv.Rows[i].Cells[x].Value = ValorDe(i, x);
-
-           /*for (int l = 0; l < tamanhoLinhas; l++)
-            {
-                for (int c = 0; c < tamanhoColunas; c++)
-                {
-
-                        dgv.Rows[p.Linha].Cells[p.Coluna].Value =;
-                }
-            }    */
         }        
     }
 }
