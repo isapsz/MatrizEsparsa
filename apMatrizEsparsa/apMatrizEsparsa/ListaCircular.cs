@@ -13,7 +13,7 @@ namespace apMatrizEsparsa
         protected int qtd;
         protected int tamanhoColunas, tamanhoLinhas;
 
-        public int TamanhoLinhas { get => tamanhoLinhas;}
+        public int TamanhoLinhas { get => tamanhoLinhas; }
         public int TamanhoColunas { get => tamanhoColunas; }
 
         public ListaCircular(int l, int c)
@@ -113,7 +113,7 @@ namespace apMatrizEsparsa
         {
             if (ValorDe(linha, coluna) == 0)
                 throw new Exception("Essa célula não existe");
-            
+
             Celula remover = esquerda.Direita;
 
             cima.Abaixo = remover.Abaixo;
@@ -136,6 +136,38 @@ namespace apMatrizEsparsa
             for (int i = 0; i < tamanhoLinhas; i++)
                 for (int x = 0; x < tamanhoColunas; x++)
                     dgv.Rows[i].Cells[x].Value = ValorDe(i, x);
+        }
+
+        public void SomarK(int coluna, double k)
+        {
+            if (coluna < 0 || coluna > tamanhoColunas)
+                throw new Exception("Coluna inválida");
+            for (int l = 0; l < tamanhoLinhas; l++)
+                if (ValorDe(l, coluna) == 0)
+                    InserirElemento(k, l, coluna);
+                else
+                    SomarElemento(k, l, coluna);
+        }
+
+        public void SomarElemento(double k, int linha, int coluna)
+        {
+            if (ValorDe(linha, coluna) == 0)
+                throw new Exception("Célula vazia");
+
+            Celula altera = esquerda.Direita;
+            altera.Valor += k;
+        }
+
+        public ListaCircular SomarMatrizes(ListaCircular soma)
+        {
+            ListaCircular resultado;
+
+            for (int l = 0; l < tamanhoLinhas && l < soma.tamanhoLinhas; l++)
+                for (int c = 0; c < tamanhoColunas && c < soma.tamanhoColunas; c++)
+                {
+
+                }
+            return resultado;
         }
     }
 }

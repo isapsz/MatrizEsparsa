@@ -22,18 +22,14 @@ namespace apMatrizEsparsa
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
-
             LerArquivo(ref matriz);
-            matriz = new ListaCircular(4, 3);
-            matriz.InserirElemento(3, 2, 1);
-            matriz.InserirElemento(4, 1, 1);
-            matriz.InserirElemento(3, 3, 1);
-            matriz.InserirElemento(15, 2, 0);
             textBox2.Text = matriz.ValorDe(2, 0).ToString();
             matriz.Exibir(dgvExibicao1);
-            matriz.RemoverElemento(1, 1);
-            matriz.RemoverElemento(2, 1);
+            matriz.SomarK(2, 2);
             matriz.Exibir(dgvExibicao1);
+            /*matriz.RemoverElemento(1, 1);
+            matriz.RemoverElemento(2, 1);
+            matriz.Exibir(dgvExibicao1);*/
         }
 
         private void LerArquivo(ref ListaCircular lista)
@@ -41,25 +37,26 @@ namespace apMatrizEsparsa
             if (dlgArquivo.ShowDialog() == DialogResult.OK)
             {
                 StreamReader arq = new StreamReader(dlgArquivo.FileName);
-                while (!arq.EndOfStream)
-                {
-                    string linha;
+
+                string linha;
+
+                if (!arq.EndOfStream)
                     lista = new ListaCircular(int.Parse(arq.ReadLine()), int.Parse(arq.ReadLine()));
 
-                    for (int l = 0; l < lista.TamanhoLinhas; l++)
-                    {
-                        linha = arq.ReadLine();
-                        string[] vetorValores = linha.Split(',');
+                while (!arq.EndOfStream)
+                {
+                    linha = arq.ReadLine();
+                    string[] vetorValores = linha.Split(',');
 
-                        for (int c = 0; c < lista.TamanhoColunas; c++)
-                        {
-                            lista.InserirElemento(int.Parse(vetorValores[c]), 
-                                                  int.Parse(vetorValores[c + 1]), 
-                                                  int.Parse(vetorValores[c + 2]));
-                        }
+                    for (int i = 0; i < vetorValores.Length; i++)
+                    {
+                        lista.InserirElemento(int.Parse(vetorValores[i]),
+                                              int.Parse(vetorValores[++i]),
+                                              int.Parse(vetorValores[++i]));
                     }
-                        
                 }
+
+
             }
 
         }
