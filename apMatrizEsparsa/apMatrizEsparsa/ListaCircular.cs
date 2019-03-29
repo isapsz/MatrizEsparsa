@@ -160,47 +160,48 @@ namespace apMatrizEsparsa
 
         public ListaCircular SomarMatrizes(ListaCircular soma)
         {
+            if (soma.tamanhoColunas != tamanhoColunas || soma.tamanhoLinhas != tamanhoLinhas)
+                throw new Exception("As matrizes tem que ter a mesma dimensão");
+
             ListaCircular resultado;
 
-            if (soma.tamanhoLinhas >= tamanhoLinhas && soma.tamanhoColunas >= tamanhoColunas)
-                resultado = new ListaCircular(soma.tamanhoLinhas, soma.tamanhoColunas);
-            else if (soma.tamanhoLinhas < tamanhoLinhas && soma.tamanhoColunas < tamanhoColunas)
-                resultado = new ListaCircular(tamanhoLinhas, tamanhoColunas);
-            else if (soma.tamanhoLinhas >= tamanhoLinhas)
-                resultado = new ListaCircular(soma.tamanhoLinhas, tamanhoColunas);
-            else
-                resultado = new ListaCircular(tamanhoLinhas, soma.tamanhoColunas);
+            resultado = new ListaCircular(tamanhoLinhas, tamanhoColunas);
+
+            for (int l = 0; l < resultado.tamanhoLinhas; l++)
+                for (int c = 0; c < resultado.tamanhoColunas; c++)
+                    if (ValorDe(l, c) + soma.ValorDe(l, c) != 0)
+                        resultado.InserirElemento(ValorDe(l, c) + soma.ValorDe(l, c), l, c);
+
+            return resultado;
+        }
+
+        public ListaCircular MultiplicarMatrizes(ListaCircular outra)
+        {
+            if (outra.tamanhoColunas != tamanhoLinhas)
+                throw new Exception("A matriz está errada");
+
+            ListaCircular resultado;
+            double valor = 0;
+            int colunaInserir = 0;
+            
+            resultado = new ListaCircular(tamanhoLinhas, outra.tamanhoColunas);
 
             for (int l = 0; l < resultado.tamanhoLinhas; l++)
             {
-                if (l >= tamanhoLinhas)
-                    for (int i = l; i < soma.tamanhoLinhas; i++)
-                        for (int c = 0; c < soma.tamanhoColunas; c++)
-                            if (soma.ValorDe(l, c) != 0)
-                                resultado.InserirElemento(soma.ValorDe(i, c), i, c);
-
-                if (l >= soma.tamanhoLinhas)
-                    for (int i = l; i < tamanhoLinhas; i++)
-                        for (int c = 0; c < tamanhoColunas; c++)
-                            if (ValorDe(l, c) != 0)
-                                resultado.InserirElemento(ValorDe(i, c), i, c);
-
-                for (int c = 0; c < resultado.tamanhoColunas; c++)
+                int c = 0;
+                while (c < tamanhoColunas)
                 {
-                    if (c >= tamanhoColunas)
-                        for (int i = c; i < soma.tamanhoColunas; i++)
-                            if (soma.ValorDe(l, c) != 0)
-                                resultado.InserirElemento(soma.ValorDe(l, i), l, i);
-
-                    if (c >= soma.tamanhoColunas)
-                        for (int i = c; i < tamanhoColunas; i++)
-                            if (ValorDe(l, c) != 0)
-                                resultado.InserirElemento(ValorDe(l, i), l, i);
-
-                    if (ValorDe(l, c) + soma.ValorDe(l, c) != 0)
-                        resultado.InserirElemento(ValorDe(l, c) + soma.ValorDe(l, c), l, c);
+                    valor += ValorDe(l, c) * outra.ValorDe(c, l);
+                    c++;
                 }
+                2 3  1 2 3   -4 
+                0 1  -2 0 4
+                -1 4
+                resultado.InserirElemento(valor, l, colunaInserir);
+                colunaInserir++;
             }
+            resultado.InserirElemento(ValorDe(0, 0) * outra.ValorDe(1, 0) + ValorDe(1, 1) * outra.ValorDe(0, 1), 0, 1);
+            resultado.InserirElemento(ValorDe(0, 0) * outra.ValorDe(2, 0) + ValorDe(1, 1) * outra.ValorDe(0, 1), 0, 2);
 
             return resultado;
         }

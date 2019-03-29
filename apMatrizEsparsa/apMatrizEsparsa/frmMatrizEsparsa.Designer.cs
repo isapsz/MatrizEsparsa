@@ -85,6 +85,7 @@
             this.dgvExibicao2.Name = "dgvExibicao2";
             this.dgvExibicao2.Size = new System.Drawing.Size(240, 150);
             this.dgvExibicao2.TabIndex = 2;
+            this.dgvExibicao2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExibicao2_CellContentClick);
             // 
             // btnLerMatriz2
             // 

@@ -72,5 +72,10 @@ namespace apMatrizEsparsa
             }
 
         }
+
+        private void dgvExibicao2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
