@@ -162,11 +162,46 @@ namespace apMatrizEsparsa
         {
             ListaCircular resultado;
 
-            for (int l = 0; l < tamanhoLinhas && l < soma.tamanhoLinhas; l++)
-                for (int c = 0; c < tamanhoColunas && c < soma.tamanhoColunas; c++)
-                {
+            if (soma.tamanhoLinhas >= tamanhoLinhas && soma.tamanhoColunas >= tamanhoColunas)
+                resultado = new ListaCircular(soma.tamanhoLinhas, soma.tamanhoColunas);
+            else if (soma.tamanhoLinhas < tamanhoLinhas && soma.tamanhoColunas < tamanhoColunas)
+                resultado = new ListaCircular(tamanhoLinhas, tamanhoColunas);
+            else if (soma.tamanhoLinhas >= tamanhoLinhas)
+                resultado = new ListaCircular(soma.tamanhoLinhas, tamanhoColunas);
+            else
+                resultado = new ListaCircular(tamanhoLinhas, soma.tamanhoColunas);
 
+            for (int l = 0; l < resultado.tamanhoLinhas; l++)
+            {
+                if (l >= tamanhoLinhas)
+                    for (int i = l; i < soma.tamanhoLinhas; i++)
+                        for (int c = 0; c < soma.tamanhoColunas; c++)
+                            if (soma.ValorDe(l, c) != 0)
+                                resultado.InserirElemento(soma.ValorDe(i, c), i, c);
+
+                if (l >= soma.tamanhoLinhas)
+                    for (int i = l; i < tamanhoLinhas; i++)
+                        for (int c = 0; c < tamanhoColunas; c++)
+                            if (ValorDe(l, c) != 0)
+                                resultado.InserirElemento(ValorDe(i, c), i, c);
+
+                for (int c = 0; c < resultado.tamanhoColunas; c++)
+                {
+                    if (c >= tamanhoColunas)
+                        for (int i = c; i < soma.tamanhoColunas; i++)
+                            if (soma.ValorDe(l, c) != 0)
+                                resultado.InserirElemento(soma.ValorDe(l, i), l, i);
+
+                    if (c >= soma.tamanhoColunas)
+                        for (int i = c; i < tamanhoColunas; i++)
+                            if (ValorDe(l, c) != 0)
+                                resultado.InserirElemento(ValorDe(l, i), l, i);
+
+                    if (ValorDe(l, c) + soma.ValorDe(l, c) != 0)
+                        resultado.InserirElemento(ValorDe(l, c) + soma.ValorDe(l, c), l, c);
                 }
+            }
+
             return resultado;
         }
     }

@@ -30,7 +30,7 @@
         {
             this.dgvExibicao1 = new System.Windows.Forms.DataGridView();
             this.btnLerMatriz1 = new System.Windows.Forms.Button();
-            this.dvgExibicao2 = new System.Windows.Forms.DataGridView();
+            this.dgvExibicao2 = new System.Windows.Forms.DataGridView();
             this.btnLerMatriz2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.dlgArquivo = new System.Windows.Forms.OpenFileDialog();
             this.dgvResultado = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgExibicao2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.grbAcesso.SuspendLayout();
@@ -78,13 +78,13 @@
             this.btnLerMatriz1.Text = "Ler Matriz 1";
             this.btnLerMatriz1.UseVisualStyleBackColor = true;
             // 
-            // dvgExibicao2
+            // dgvExibicao2
             // 
-            this.dvgExibicao2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgExibicao2.Location = new System.Drawing.Point(297, 53);
-            this.dvgExibicao2.Name = "dvgExibicao2";
-            this.dvgExibicao2.Size = new System.Drawing.Size(240, 150);
-            this.dvgExibicao2.TabIndex = 2;
+            this.dgvExibicao2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExibicao2.Location = new System.Drawing.Point(297, 53);
+            this.dgvExibicao2.Name = "dgvExibicao2";
+            this.dgvExibicao2.Size = new System.Drawing.Size(240, 150);
+            this.dgvExibicao2.TabIndex = 2;
             // 
             // btnLerMatriz2
             // 
@@ -258,14 +258,14 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grbAcesso);
             this.Controls.Add(this.btnLerMatriz2);
-            this.Controls.Add(this.dvgExibicao2);
+            this.Controls.Add(this.dgvExibicao2);
             this.Controls.Add(this.btnLerMatriz1);
             this.Controls.Add(this.dgvExibicao1);
             this.Name = "frmMatrizEsparsa";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmMatrizEsparsa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgExibicao2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.grbAcesso.ResumeLayout(false);
@@ -283,7 +283,7 @@
 
         private System.Windows.Forms.DataGridView dgvExibicao1;
         private System.Windows.Forms.Button btnLerMatriz1;
-        private System.Windows.Forms.DataGridView dvgExibicao2;
+        private System.Windows.Forms.DataGridView dgvExibicao2;
         private System.Windows.Forms.Button btnLerMatriz2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

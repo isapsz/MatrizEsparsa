@@ -19,17 +19,29 @@ namespace apMatrizEsparsa
         }
 
         ListaCircular matriz;
+        ListaCircular matrizSoma;
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
-            LerArquivo(ref matriz);
-            textBox2.Text = matriz.ValorDe(2, 0).ToString();
-            matriz.Exibir(dgvExibicao1);
-            matriz.SomarK(2, 2);
-            matriz.Exibir(dgvExibicao1);
-            /*matriz.RemoverElemento(1, 1);
-            matriz.RemoverElemento(2, 1);
-            matriz.Exibir(dgvExibicao1);*/
+            try
+            {
+                LerArquivo(ref matriz);
+                LerArquivo(ref matrizSoma);
+                textBox2.Text = matriz.ValorDe(2, 0).ToString();
+                matriz.Exibir(dgvExibicao1);
+                // matriz.SomarK(2, 2);
+                matrizSoma.Exibir(dgvExibicao2);
+                matriz.SomarMatrizes(matrizSoma).Exibir(dgvResultado);
+                /*matriz.RemoverElemento(1, 1);
+                matriz.RemoverElemento(2, 1);
+                matriz.Exibir(dgvExibicao1);*/
+            }
+            catch(Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+
+
         }
 
         private void LerArquivo(ref ListaCircular lista)

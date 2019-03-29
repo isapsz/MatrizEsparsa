@@ -82,7 +82,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MatrizEsparsa1txt.txt" />
+    <Content Include="MatrizEsparsa1.txt" />
+    <Content Include="MatrizEsparsa2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
