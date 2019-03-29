@@ -133,6 +133,7 @@ namespace apMatrizEsparsa
             dgv.RowCount = tamanhoLinhas;
             dgv.ColumnCount = tamanhoColunas;
 
+
             for (int i = 0; i < tamanhoLinhas; i++)
                 for (int x = 0; x < tamanhoColunas; x++)
                     dgv.Rows[i].Cells[x].Value = ValorDe(i, x);
@@ -142,6 +143,7 @@ namespace apMatrizEsparsa
         {
             if (coluna < 0 || coluna > tamanhoColunas)
                 throw new Exception("Coluna inválida");
+
             for (int l = 0; l < tamanhoLinhas; l++)
                 if (ValorDe(l, coluna) == 0)
                     InserirElemento(k, l, coluna);
@@ -155,7 +157,11 @@ namespace apMatrizEsparsa
                 throw new Exception("Célula vazia");
 
             Celula altera = esquerda.Direita;
-            altera.Valor += k;
+
+            if ((altera.Valor + k) == 0)
+                RemoverElemento(linha, coluna);
+            else
+                altera.Valor += k;
         }
 
         public ListaCircular SomarMatrizes(ListaCircular soma)
@@ -178,30 +184,26 @@ namespace apMatrizEsparsa
         public ListaCircular MultiplicarMatrizes(ListaCircular outra)
         {
             if (outra.tamanhoColunas != tamanhoLinhas)
-                throw new Exception("A matriz está errada");
+                throw new Exception("A quantidade de linhas da matriz tem que ser igual a quantidade de colunas da outra");
 
             ListaCircular resultado;
             double valor = 0;
-            int colunaInserir = 0;
-            
+
             resultado = new ListaCircular(tamanhoLinhas, outra.tamanhoColunas);
 
             for (int l = 0; l < resultado.tamanhoLinhas; l++)
             {
-                int c = 0;
-                while (c < tamanhoColunas)
+                for (int c = 0; c < resultado.tamanhoColunas; c++)
                 {
-                    valor += ValorDe(l, c) * outra.ValorDe(c, l);
-                    c++;
+                    for (int coluna = 0; coluna < tamanhoColunas; coluna++)
+                        valor += ValorDe(l, coluna) * outra.ValorDe(coluna, c);
+
+                    if (valor != 0)
+                        resultado.InserirElemento(valor, l, c);
+                    valor = 0;
                 }
-                2 3  1 2 3   -4 
-                0 1  -2 0 4
-                -1 4
-                resultado.InserirElemento(valor, l, colunaInserir);
-                colunaInserir++;
+
             }
-            resultado.InserirElemento(ValorDe(0, 0) * outra.ValorDe(1, 0) + ValorDe(1, 1) * outra.ValorDe(0, 1), 0, 1);
-            resultado.InserirElemento(ValorDe(0, 0) * outra.ValorDe(2, 0) + ValorDe(1, 1) * outra.ValorDe(0, 1), 0, 2);
 
             return resultado;
         }

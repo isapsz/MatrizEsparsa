@@ -23,15 +23,17 @@ namespace apMatrizEsparsa
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
+           
+            
             try
             {
-                LerArquivo(ref matriz);
-                LerArquivo(ref matrizSoma);
-                textBox2.Text = matriz.ValorDe(2, 0).ToString();
-                matriz.Exibir(dgvExibicao1);
+                //LerArquivo(ref matriz);
+                //LerArquivo(ref matrizSoma);
+                //textBox2.Text = matriz.ValorDe(2, 0).ToString();
+                //matriz.Exibir(dgvExibicao1);
                 // matriz.SomarK(2, 2);
-                matrizSoma.Exibir(dgvExibicao2);
-                matriz.SomarMatrizes(matrizSoma).Exibir(dgvResultado);
+                //matrizSoma.Exibir(dgvExibicao2);
+                //matriz.MultiplicarMatrizes(matrizSoma).Exibir(dgvResultado);
                 /*matriz.RemoverElemento(1, 1);
                 matriz.RemoverElemento(2, 1);
                 matriz.Exibir(dgvExibicao1);*/
@@ -76,6 +78,44 @@ namespace apMatrizEsparsa
         private void dgvExibicao2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnExibirInfo_Click(object sender, EventArgs e)
+        {
+            txtValor1.Text = matriz.ValorDe(int.Parse(ndLinha.Value+""), int.Parse(ndColuna.Value +"")).ToString();
+        }
+
+        private void btnExibirInfo2_Click(object sender, EventArgs e)
+        {
+            txtValor2.Text = matrizSoma.ValorDe(int.Parse(ndLinhaMatriz2.Value + ""), int.Parse(ndColunaMatriz2.Value + "")).ToString();
+        }
+
+        private void btnLerMatriz1_Click(object sender, EventArgs e)
+        {
+            LerArquivo(ref matriz);
+            matriz.Exibir(dgvExibicao1);
+            ndLinha.Maximum = matriz.TamanhoLinhas-1;
+            ndColunaSoma.Maximum = ndColuna.Maximum = matriz.TamanhoColunas-1;
+        }
+
+        private void btnLerMatriz2_Click(object sender, EventArgs e)
+        {
+            LerArquivo(ref matrizSoma);
+            matrizSoma.Exibir(dgvExibicao2);
+            ndLinhaMatriz2.Maximum = matrizSoma.TamanhoLinhas-1;
+            ndColunaSomaMatriz2.Maximum=ndColunaMatriz2.Maximum = matrizSoma.TamanhoColunas-1;
+        }
+
+        private void btnSomarK_Click(object sender, EventArgs e)
+        {
+            matriz.SomarK(int.Parse(ndColunaSoma.Value + ""), int.Parse(txtK.Text));
+            matriz.Exibir(dgvExibicao1);
+        }
+
+        private void btnSomaMatriz2_Click(object sender, EventArgs e)
+        {
+            matrizSoma.SomarK(int.Parse(ndColunaSomaMatriz2.Value + ""), int.Parse(txtK2.Text));
+            matrizSoma.Exibir(dgvExibicao2);
         }
     }
 }
