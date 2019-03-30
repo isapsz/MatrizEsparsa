@@ -8,3 +8,13 @@ C:\Users\u18189\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\b
 C:\Users\u18189\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\bin\Debug\apMatrizEsparsa.pdb
 C:\Users\u18189\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.exe
 C:\Users\u18189\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.pdb
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.csprojAssemblyReference.cache
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.frmMatrizEsparsa.resources
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.Properties.Resources.resources
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.csproj.GenerateResource.cache
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.csproj.CoreCompileInputs.cache
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.exe
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\obj\Debug\apMatrizEsparsa.pdb
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\bin\Debug\apMatrizEsparsa.exe.config
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\bin\Debug\apMatrizEsparsa.exe
+C:\Users\Passaro Fantasma\Documents\GitHub\MatrizEsparsa\apMatrizEsparsa\apMatrizEsparsa\bin\Debug\apMatrizEsparsa.pdb

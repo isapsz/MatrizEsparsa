@@ -23,10 +23,11 @@ namespace apMatrizEsparsa
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
-           
-            
+
             try
             {
+                lblInstrucoes.Text = "Para inserir um valor na matriz digite-o na tabela. " +
+                                      "Para excluir substitua o valor que deseja apagar na tabela por 0.";
                 //LerArquivo(ref matriz);
                 //LerArquivo(ref matrizSoma);
                 //textBox2.Text = matriz.ValorDe(2, 0).ToString();
@@ -38,7 +39,7 @@ namespace apMatrizEsparsa
                 matriz.RemoverElemento(2, 1);
                 matriz.Exibir(dgvExibicao1);*/
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
             }
@@ -82,7 +83,7 @@ namespace apMatrizEsparsa
 
         private void btnExibirInfo_Click(object sender, EventArgs e)
         {
-            txtValor1.Text = matriz.ValorDe(int.Parse(ndLinha.Value+""), int.Parse(ndColuna.Value +"")).ToString();
+            txtValor1.Text = matriz.ValorDe(int.Parse(ndLinha.Value + ""), int.Parse(ndColuna.Value + "")).ToString();
         }
 
         private void btnExibirInfo2_Click(object sender, EventArgs e)
@@ -94,27 +95,29 @@ namespace apMatrizEsparsa
         {
             LerArquivo(ref matriz);
             matriz.Exibir(dgvExibicao1);
-            ndLinha.Maximum = matriz.TamanhoLinhas-1;
-            ndColunaSoma.Maximum = ndColuna.Maximum = matriz.TamanhoColunas-1;
+            ndLinha.Maximum = matriz.TamanhoLinhas - 1;
+            ndColuna.Maximum = matriz.TamanhoColunas - 1;
+            lbMatriz.Text = "Matriz 1: ";
         }
 
         private void btnLerMatriz2_Click(object sender, EventArgs e)
         {
             LerArquivo(ref matrizSoma);
             matrizSoma.Exibir(dgvExibicao2);
-            ndLinhaMatriz2.Maximum = matrizSoma.TamanhoLinhas-1;
-            ndColunaSomaMatriz2.Maximum=ndColunaMatriz2.Maximum = matrizSoma.TamanhoColunas-1;
+            ndLinhaMatriz2.Maximum = matrizSoma.TamanhoLinhas - 1;
+            ndColunaMatriz2.Maximum = matrizSoma.TamanhoColunas - 1;
+            lblMatriz2.Text = "Matriz 2: ";
         }
 
         private void btnSomarK_Click(object sender, EventArgs e)
         {
-            matriz.SomarK(int.Parse(ndColunaSoma.Value + ""), int.Parse(txtK.Text));
+            matriz.SomarK(int.Parse(ndColuna.Value + ""), int.Parse(txtValor1.Text));
             matriz.Exibir(dgvExibicao1);
         }
 
         private void btnSomaMatriz2_Click(object sender, EventArgs e)
         {
-            matrizSoma.SomarK(int.Parse(ndColunaSomaMatriz2.Value + ""), int.Parse(txtK2.Text));
+            matrizSoma.SomarK(int.Parse(ndColunaMatriz2.Value + ""), int.Parse(txtValor2.Text));
             matrizSoma.Exibir(dgvExibicao2);
         }
     }
