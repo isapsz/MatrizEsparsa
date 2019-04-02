@@ -53,7 +53,6 @@
       <DependentUpon>frmMatrizEsparsa.cs</DependentUpon>
     </Compile>
     <Compile Include="ListaCircular.cs" />
-    <Compile Include="NoLista.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMatrizEsparsa.resx">
@@ -84,6 +83,7 @@
   <ItemGroup>
     <Content Include="MatrizEsparsa1.txt" />
     <Content Include="MatrizEsparsa2.txt" />
+    <Content Include="MatrizEsparsa3.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
