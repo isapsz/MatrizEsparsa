@@ -20,7 +20,7 @@ namespace apMatrizEsparsa
     @author Ana Clara Sampaio Pires e Isabela Paulino de Souza 
     */
     class ListaCircularCruzada
-    {  
+    {
         /* Celula cabeça que vai ter posição -1,-1 e aponta para as células cabeça da direita e células cabeça da 
          esquerda, possui duas células esquerda e cima que serão utilizadas para auxiliar os métodos.*/
         protected Celula cabeca, esquerda, cima;
@@ -84,7 +84,8 @@ namespace apMatrizEsparsa
 
         /*Retorna uma célula com valor e posição passada como  parâmetros
          @return Celula nova célula criada
-         @params double valor que irá ser o valor da nova célula, int linha e coluna que serão a posição da célula*/
+         @params double valor que irá ser o valor da nova célula, int linha e coluna que serão a posição da célula
+         */
         protected Celula CriarCelula(double valor, int linha, int coluna)
         {
             if (linha < 0 || coluna < 0 || linha > tamanhoLinhas - 1 || coluna > tamanhoColunas - 1)
@@ -96,12 +97,13 @@ namespace apMatrizEsparsa
             return new Celula(valor, linha, coluna);
         }
 
-        /* Método que retorn o valor de uma célula com base na linha e coluna passadas, caso a céula esteja vazia
+        /* Método que retorna o valor de uma célula com base na linha e coluna passadas, caso a céula esteja vazia
          retorna 0;
          @return o valor da célula procurada
          @params a linha e coluna onde está localizada a célula que se quer encontrar
          @throws se a linha passada como parâmetro  for menor que 0 ou maior que o tamanho máximo de linhas ou 
-         se a coluna passada for maior que o tamanho máximo de colunas ou menor que 0*/
+         se a coluna passada for maior que o tamanho máximo de colunas ou menor que 0
+         */
         public double ValorDe(int linha, int coluna)
         {
             if (linha < 0 || coluna < 0 || linha > tamanhoLinhas || coluna > tamanhoColunas)
@@ -130,8 +132,11 @@ namespace apMatrizEsparsa
         }
 
 
-      
-        /**/
+
+        /* Método sem retorno que insere uma célula na coluna e linha desejada, caso já exista esta célula na 
+           lista circular, apenas altera o valor da célula
+           @params a linha e coluna onde o usuário deseja inserir a célula e o valor a ser adicionado na célula
+        */
         public void InserirElemento(double valor, int linha, int coluna)
         {
             if (ValorDe(linha, coluna) != 0)
@@ -150,14 +155,19 @@ namespace apMatrizEsparsa
         }
 
 
-       
-        /**/
+
+        /* Método sem retorno que altera o valor de uma célula desejada 
+           @params a célula a ser alterada e o novo valor que será atribuido a esta célula
+        */
         protected void AlterarValor(double valor, Celula alterar)
         {
             alterar.Valor = valor;
         }
 
-        /**/
+        /* Método sem retorno que remove uma célula na coluna e linha desejada
+           @params a linha e coluna onde o usuário deseja inserir a célula e o valor a ser adicionado na célula
+           @throws se não existir uma célula alocada na linha e na coluna passada
+        */
         public void RemoverElemento(int linha, int coluna)
         {
             if (ValorDe(linha, coluna) == 0)
@@ -169,7 +179,9 @@ namespace apMatrizEsparsa
             esquerda.Direita = remover.Direita;
         }
 
-        /**/
+        /* Método sem retorno que desaloca toda a lista circular, 
+           a cabeça que apontava para a lista deixa de existir
+        */
         public void Zerar()
         {
             cabeca = null;
@@ -178,7 +190,9 @@ namespace apMatrizEsparsa
         }
 
 
-        /**/
+        /* Método sem retorno que exibe todas as células da lista circular num DataGridView
+           @params o DataGridView no qual as células serão exibidas
+        */
         public void Exibir(DataGridView dgv)
         {
             Celula p = cabeca;
@@ -191,7 +205,11 @@ namespace apMatrizEsparsa
         }
 
 
-        /**/
+        /* Método sem retorno que soma um valor double a todas as células da coluna desejada
+           @params a coluna na qual terá todas as suas células somadas e o valor que será somado
+           @throws se a coluna passada como parâmetro for menor que 0 ou for maior que o tamanho 
+           máximo de colunas da lista circular
+        */
         public void SomarK(int coluna, double k)
         {
             if (coluna < 0 || coluna > tamanhoColunas)
@@ -205,7 +223,10 @@ namespace apMatrizEsparsa
         }
 
 
-        /**/
+        /* Método sem retorno que soma um valor à célula desejada
+           @params a linha e coluna onde está alocada a célula na qual o usuário deseja somar um valor
+           @throws se a célula estiver vazia
+        */
         public void SomarElemento(double k, int linha, int coluna)
         {
             if (ValorDe(linha, coluna) == 0)
