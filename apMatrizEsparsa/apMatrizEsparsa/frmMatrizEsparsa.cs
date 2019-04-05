@@ -12,6 +12,12 @@ using System.Windows.Forms;
 
 // Ana Clara Sampaio Pires - 18201 Isabela Paulino de Souza 18189
 
+/**
+A classe frmMatrizEsparsa tem como obetivo fazer as operações
+da classe ListaCircular e exibir de forma gráfico os resultados dos métodos,
+mostrar as matrizes e ler arquivos.
+@author Ana Clara Sampaio Pires e Isabela Paulino de Souza 
+*/
 
 namespace apMatrizEsparsa
 {
@@ -21,9 +27,13 @@ namespace apMatrizEsparsa
         {
             InitializeComponent();
         }
-
+        /*Criação de duas matrizes que serão utilizadas para 
+          exibição no dataGridView e utilizadas para as operações desejadas
+        */
         ListaCircularCruzada matriz;
         ListaCircularCruzada matrizDois;
+
+        /* Método que ocorre quando o formulário for iniciado*/
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
@@ -31,6 +41,11 @@ namespace apMatrizEsparsa
             lblInstrucoes.Text = "Para inserir um valor na matriz digite-o na tabela.\n" +
                                  "Para excluir substitua o valor que deseja apagar na tabela por 0.";
         }
+
+        /* Método sem retorno que lê um arquivo texto escolhido pelo 
+           usuário e os insere os dados presentes na matriz desejada
+           @params a matriz na qual os dados do aquivo serão inseridos
+         */
 
         private void LerArquivo(ref ListaCircularCruzada lista)
         {
@@ -65,6 +80,11 @@ namespace apMatrizEsparsa
             }
         }
 
+        /* Método que ocorre quando o usuário clicar no botão exibir1 e nele ocorre a 
+           exibição do valor alocado na célula da matriz1 na coluna e linha presentes 
+           nos campos indicados no form
+        */
+
         private void btnExibirInfo_Click(object sender, EventArgs e)
         {
             try
@@ -78,6 +98,11 @@ namespace apMatrizEsparsa
             }
         }
 
+        /* Método que ocorre quando o usuário clicar no botão exibir2 e nele ocorre a 
+           exibição do valor alocado na célula da matriz2 na coluna e linha presentes 
+           nos campos indicados no form
+        */
+
         private void btnExibirInfo2_Click(object sender, EventArgs e)
         {
             try
@@ -90,6 +115,10 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "Erro ao procurar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /* Método que ocorre quando o usuário clicar no botão ler matriz1 e nele ocorre a 
+           exibição da matriz lida pelo arquivo texto indicado pelo usuário no devido DataGridView
+        */
 
         private void btnLerMatriz1_Click(object sender, EventArgs e)
         {
@@ -106,7 +135,9 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "Erro ao criar matriz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /* Método que ocorre quando o usuário clicar no botão ler matriz2 e nele ocorre a 
+           exibição da matriz lida pelo arquivo texto indicado pelo usuário no devido DataGridView
+        */
         private void btnLerMatriz2_Click(object sender, EventArgs e)
         {
             try
@@ -122,7 +153,10 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "Erro ao criar matriz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /* Método que ocorre quando o usuário clicar no botão somarK e nele ocorre a 
+           exibição da matriz1 no DataGridView após ser somado um valor K a todas as 
+           células de uma certa coluna
+        */
         private void btnSomarK_Click(object sender, EventArgs e)
         {
             try
@@ -138,6 +172,10 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "A coluna estava fora dos limites da matriz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /* Método que ocorre quando o usuário clicar no botão somarK2 e nele ocorre a 
+           exibição da matriz2 no DataGridView após ser somado um valor K a todas as 
+           células de uma certa coluna
+        */
 
         private void btnSomaMatriz2_Click(object sender, EventArgs e)
         {
@@ -154,6 +192,10 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "A coluna estava fora dos limites da matriz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /* Método que ocorre quando uma célula do DataGridView é alterada e assim
+            altera a matriz1 seja incluindo, excluindo ou alterando e exibe novamente no DataGridView
+        */
 
         private void dgvExibicao1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -175,6 +217,9 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "Erro ao alterar matriz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /* Método que ocorre quando uma célula do DataGridView é alterada e assim
+           altera a matriz2 seja incluindo, excluindo ou alterando e exibe novamente no DataGridView
+       */
 
         private void dgvExibicao2_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -199,6 +244,10 @@ namespace apMatrizEsparsa
 
         }
 
+        /* Método que ocorre quando o botão SomarMatrizes for clicado assim as
+           matrizes 1 e 2 são somadas e o resultado é exibido em um DataGridView
+        */
+
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
             try
@@ -211,6 +260,9 @@ namespace apMatrizEsparsa
                 MessageBox.Show(erro.Message, "Soma inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        /* Método que ocorre quando o botão MultiplicarMatrizes for clicado assim as
+           matrizes 1 e 2 são multiplicadas e o resultado é exibido em um DataGridView
+        */
 
         private void btnMultiplicarMatrizes_Click(object sender, EventArgs e)
         {
@@ -226,6 +278,10 @@ namespace apMatrizEsparsa
 
         }
 
+        /* Método que ocorre quando o botão Zerar1 for clicado assim a
+           matriz 1 é zerada e exibida em um DataGridView
+        */
+
         private void btnZerar1_Click(object sender, EventArgs e)
         {
             try
@@ -238,6 +294,9 @@ namespace apMatrizEsparsa
                 throw new Exception(erro.Message);
             }
         }
+        /* Método que ocorre quando o botão Zerar1 for clicado assim a
+           matriz 2 é zerada e exibida em um DataGridView
+        */
 
         private void btnZerar2_Click(object sender, EventArgs e)
         {
@@ -251,12 +310,16 @@ namespace apMatrizEsparsa
                 throw new Exception(erro.Message);
             }
         }
-
+        /* Método que ocorre quando o mouse entra no botão LerMatriz1 
+           mudando a cor do botão
+        */
         private void btnLerMatriz1_MouseEnter(object sender, EventArgs e)
         {
             ((Button)sender).ForeColor = Color.Black;
         }
-
+        /* Método que ocorre quando o mouse sai no botão LerMatriz1 
+           mudando a cor do botão
+        */
         private void btnLerMatriz1_MouseLeave(object sender, EventArgs e)
         {
             ((Button)sender).ForeColor = Color.White;

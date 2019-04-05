@@ -240,7 +240,10 @@ namespace apMatrizEsparsa
                 altera.Valor += k;
         }
 
-        /**/
+        /* Método que retorna uma matriz resultante da soma da matriz this com a matriz passada por parâmetro
+           @params a matriz que o usuário deseja somar com a matriz this
+           @throws se a matriz passada por parâmetro não tiver as mesma dimensões que a matriz this
+        */
         public ListaCircularCruzada SomarMatrizes(ListaCircularCruzada soma)
         {
             if (soma.tamanhoColunas != tamanhoColunas || soma.tamanhoLinhas != tamanhoLinhas)
@@ -259,7 +262,11 @@ namespace apMatrizEsparsa
         }
 
 
-        /**/
+        /* Método que retorna uma matriz resultante da multiplicação da matriz this com a matriz passada por parâmetro
+           @params a matriz que o usuário deseja multiplicar com a matriz this
+           @throws se a quantidade de colunas da matriz passada por parâmetro não 
+           for igual à quantidade de linhas da matriz this
+        */
         public ListaCircularCruzada MultiplicarMatrizes(ListaCircularCruzada outra)
         {
             if (outra.tamanhoColunas != tamanhoLinhas)
