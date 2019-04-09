@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -154,8 +155,6 @@ namespace apMatrizEsparsa
             }
         }
 
-
-
         /* Método sem retorno que altera o valor de uma célula desejada 
            @params a célula a ser alterada e o novo valor que será atribuido a esta célula
         */
@@ -195,13 +194,15 @@ namespace apMatrizEsparsa
         */
         public void Exibir(DataGridView dgv)
         {
-            Celula p = cabeca;
-            dgv.RowCount = tamanhoLinhas;
-            dgv.ColumnCount = tamanhoColunas;
+            if(dgv != null)
+            {
+                dgv.RowCount = tamanhoLinhas;
+                dgv.ColumnCount = tamanhoColunas;
 
-            for (int i = 0; i < tamanhoLinhas; i++)
-                for (int x = 0; x < tamanhoColunas; x++)
-                    dgv.Rows[i].Cells[x].Value = ValorDe(i, x);
+                for (int i = 0; i < tamanhoLinhas; i++)
+                    for (int x = 0; x < tamanhoColunas; x++)
+                        dgv[x, i].Value = ValorDe(i, x);
+            }
         }
 
 
@@ -288,10 +289,29 @@ namespace apMatrizEsparsa
                         resultado.InserirElemento(valor, l, c);
                     valor = 0;
                 }
-
             }
 
             return resultado;
+        }
+
+        public void GravarEmArquivo(string nomeArquivo)
+        {
+            if (nomeArquivo == null || nomeArquivo.Equals(""))
+                throw new Exception("Nome de arquivo inválido");
+
+            StreamWriter salvar = new StreamWriter(nomeArquivo);
+
+            salvar.WriteLine(this.tamanhoLinhas);
+            salvar.WriteLine(this.tamanhoColunas);
+
+            double numero;
+            for (int i = 0; i < tamanhoLinhas; i++)
+            {
+                for (int x = 0; x < tamanhoColunas; x++)
+                    if ((numero = ValorDe(i, x)) != 0)
+                        salvar.WriteLine(numero + "," + i + "," + x);
+            }
+            salvar.Close();
         }
     }
 }

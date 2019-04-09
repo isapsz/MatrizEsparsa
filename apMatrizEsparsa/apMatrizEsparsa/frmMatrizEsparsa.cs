@@ -27,17 +27,24 @@ namespace apMatrizEsparsa
         {
             InitializeComponent();
         }
-        /*Criação de duas matrizes que serão utilizadas para 
-          exibição no dataGridView e utilizadas para as operações desejadas
+
+        /*Criação das listas que serão utilizadas para 
+          exibição no dataGridView e utilizadas para as operações desejadas e da lista que 
+          guardará o resultado dessas operações;
         */
-        ListaCircularCruzada matriz;
-        ListaCircularCruzada matrizDois;
+        ListaCircularCruzada matriz, matrizDois, resultado;
+        /*
+          Vetor boolean que guarda se devemos exibir ou não o grbOperações
+        */
+        private bool[] podeOperacao = { false, false };
+
+        /* Strings que guardam os nomes de arquivos das matrizes*/
+        private static string nomeMatriz1 = "", nomeMatriz2 = "";
 
         /* Método que ocorre quando o formulário for iniciado*/
 
         private void frmMatrizEsparsa_Load(object sender, EventArgs e)
         {
-           // dgvExibicao1.Dock = DockStyle.Fill;
             lblInstrucoes.Text = "Para inserir um valor na matriz digite-o na tabela.\n" +
                                  "Para excluir substitua o valor que deseja apagar na tabela por 0.";
         }
@@ -47,13 +54,14 @@ namespace apMatrizEsparsa
            @params a matriz na qual os dados do aquivo serão inseridos
          */
 
-        private void LerArquivo(ref ListaCircularCruzada lista)
+        private void LerArquivo(ref ListaCircularCruzada lista, ref string nomeArquivo)
         {
             try
             {
                 if (dlgArquivo.ShowDialog() == DialogResult.OK)
                 {
-                    StreamReader arq = new StreamReader(dlgArquivo.FileName);
+                    nomeArquivo = dlgArquivo.FileName;
+                    StreamReader arq = new StreamReader(nomeArquivo);
 
                     string linha;
 
@@ -72,6 +80,7 @@ namespace apMatrizEsparsa
                                                   int.Parse(vetorValores[++i]));
                         }
                     }
+                    arq.Close();
                 }
             }
             catch (IOException erro)
@@ -84,7 +93,6 @@ namespace apMatrizEsparsa
            exibição do valor alocado na célula da matriz1 na coluna e linha presentes 
            nos campos indicados no form
         */
-
         private void btnExibirInfo_Click(object sender, EventArgs e)
         {
             try
@@ -124,11 +132,21 @@ namespace apMatrizEsparsa
         {
             try
             {
-                LerArquivo(ref matriz);
+                LerArquivo(ref matriz, ref nomeMatriz1);
                 matriz.Exibir(dgvExibicao1);
+
                 ndLinha.Maximum = matriz.TamanhoLinhas - 1;
                 ndColuna.Maximum = matriz.TamanhoColunas - 1;
+
+                grbAcesso.Enabled = true;
+
+                if (podeOperacao[1] == true)
+                    grbOperacao.Enabled = true;
+                else
+                    podeOperacao[0] = true;
+
                 lbMatriz.Text = "Matriz 1: ";
+
             }
             catch (Exception erro)
             {
@@ -142,10 +160,20 @@ namespace apMatrizEsparsa
         {
             try
             {
-                LerArquivo(ref matrizDois);
+                LerArquivo(ref matrizDois, ref nomeMatriz2);
+
                 matrizDois.Exibir(dgvExibicao2);
+
                 ndLinhaMatriz2.Maximum = matrizDois.TamanhoLinhas - 1;
                 ndColunaMatriz2.Maximum = matrizDois.TamanhoColunas - 1;
+
+                grbAcesso2.Enabled = true;
+
+                if (podeOperacao[0] == true)
+                    grbOperacao.Enabled = true;
+                else
+                    podeOperacao[1] = true;
+
                 lblMatriz2.Text = "Matriz 2: ";
             }
             catch (Exception erro)
@@ -163,8 +191,14 @@ namespace apMatrizEsparsa
             {
                 if (matriz != null)
                 {
-                    matriz.SomarK(int.Parse(ndColuna.Value + ""), int.Parse(txtValor1.Text));
-                    matriz.Exibir(dgvExibicao1);
+                    if(txtValor1.Text == "")
+                        MessageBox.Show("Valor de soma vazio", "Digite um valor para somar, por favor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                    {
+                        matriz.SomarK(int.Parse(ndColuna.Value + ""), int.Parse(txtValor1.Text));
+                        matriz.Exibir(dgvExibicao1);
+                    }
+                  
                 }
             }
             catch (Exception erro)
@@ -183,8 +217,13 @@ namespace apMatrizEsparsa
             {
                 if (matrizDois != null)
                 {
-                    matrizDois.SomarK(int.Parse(ndColunaMatriz2.Value + ""), int.Parse(txtValor2.Text));
-                    matrizDois.Exibir(dgvExibicao2);
+                    if (txtValor2.Text == "")
+                        MessageBox.Show("Valor de soma vazio", "Digite um valor para somar, por favor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                    {
+                        matrizDois.SomarK(int.Parse(ndColunaMatriz2.Value + ""), int.Parse(txtValor2.Text));
+                        matrizDois.Exibir(dgvExibicao2);
+                    }
                 }
             }
             catch (Exception erro)
@@ -253,7 +292,10 @@ namespace apMatrizEsparsa
             try
             {
                 if (matrizDois != null && matriz != null)
-                    matriz.SomarMatrizes(matrizDois).Exibir(dgvResultado);
+                {
+                    resultado = matriz.SomarMatrizes(matrizDois);
+                    resultado.Exibir(dgvResultado);
+                }    
             }
             catch (Exception erro)
             {
@@ -269,7 +311,10 @@ namespace apMatrizEsparsa
             try
             {
                 if (matrizDois != null && matriz != null)
-                    matriz.MultiplicarMatrizes(matrizDois).Exibir(dgvResultado);
+                {
+                    resultado = matriz.MultiplicarMatrizes(matrizDois);
+                    resultado.Exibir(dgvResultado);
+                }    
             }
             catch (Exception erro)
             {
@@ -317,6 +362,47 @@ namespace apMatrizEsparsa
         {
             ((Button)sender).ForeColor = Color.Black;
         }
+
+        private void btnSalvar1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                matriz.GravarEmArquivo(nomeMatriz1);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+
+        private void btnSalvar2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                matrizDois.GravarEmArquivo(nomeMatriz2);
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+
+        private void btnSalvarResultado_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(sfdArquivo.ShowDialog() == DialogResult.OK)
+                {
+                    dlgArquivo.Title = "Escolha onde deseja salvar";
+                    resultado.GravarEmArquivo(sfdArquivo.FileName);
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+
         /* Método que ocorre quando o mouse sai no botão LerMatriz1 
            mudando a cor do botão
         */

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvExibicao1 = new System.Windows.Forms.DataGridView();
             this.btnLerMatriz1 = new System.Windows.Forms.Button();
             this.dgvExibicao2 = new System.Windows.Forms.DataGridView();
@@ -45,12 +45,14 @@
             this.txtValor1 = new System.Windows.Forms.TextBox();
             this.lbValor = new System.Windows.Forms.Label();
             this.grbAcesso = new System.Windows.Forms.GroupBox();
+            this.btnSalvar1 = new System.Windows.Forms.Button();
             this.btnSomarK = new System.Windows.Forms.Button();
             this.btnExibirInfo = new System.Windows.Forms.Button();
             this.btnZerar1 = new System.Windows.Forms.Button();
             this.dlgArquivo = new System.Windows.Forms.OpenFileDialog();
             this.dgvResultado = new System.Windows.Forms.DataGridView();
             this.grbAcesso2 = new System.Windows.Forms.GroupBox();
+            this.btnSalvar2 = new System.Windows.Forms.Button();
             this.btnSomaMatriz2 = new System.Windows.Forms.Button();
             this.btnZerar2 = new System.Windows.Forms.Button();
             this.btnExibirInfo2 = new System.Windows.Forms.Button();
@@ -61,12 +63,14 @@
             this.txtValor2 = new System.Windows.Forms.TextBox();
             this.ndColunaMatriz2 = new System.Windows.Forms.NumericUpDown();
             this.grbOperacao = new System.Windows.Forms.GroupBox();
-            this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
+            this.btnSalvarResultado = new System.Windows.Forms.Button();
             this.btnSomarMatrizes = new System.Windows.Forms.Button();
+            this.btnMultiplicarMatrizes = new System.Windows.Forms.Button();
             this.lblInstrucoes = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbMatriz = new System.Windows.Forms.Label();
             this.lblMatriz2 = new System.Windows.Forms.Label();
+            this.sfdArquivo = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExibicao2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndLinha)).BeginInit();
@@ -91,20 +95,20 @@
             this.dgvExibicao1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExibicao1.ColumnHeadersVisible = false;
             this.dgvExibicao1.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExibicao1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExibicao1.DefaultCellStyle = dataGridViewCellStyle25;
             this.dgvExibicao1.Location = new System.Drawing.Point(20, 109);
             this.dgvExibicao1.Margin = new System.Windows.Forms.Padding(5);
             this.dgvExibicao1.Name = "dgvExibicao1";
             this.dgvExibicao1.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvExibicao1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvExibicao1.RowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvExibicao1.Size = new System.Drawing.Size(394, 242);
             this.dgvExibicao1.TabIndex = 0;
             this.dgvExibicao1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExibicao1_CellEndEdit);
@@ -143,20 +147,20 @@
             this.dgvExibicao2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExibicao2.ColumnHeadersVisible = false;
             this.dgvExibicao2.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExibicao2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExibicao2.DefaultCellStyle = dataGridViewCellStyle27;
             this.dgvExibicao2.Location = new System.Drawing.Point(430, 109);
             this.dgvExibicao2.Margin = new System.Windows.Forms.Padding(5);
             this.dgvExibicao2.Name = "dgvExibicao2";
             this.dgvExibicao2.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvExibicao2.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvExibicao2.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.dgvExibicao2.Size = new System.Drawing.Size(400, 242);
             this.dgvExibicao2.TabIndex = 2;
             this.dgvExibicao2.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExibicao2_CellEndEdit);
@@ -241,6 +245,7 @@
             // grbAcesso
             // 
             this.grbAcesso.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.grbAcesso.Controls.Add(this.btnSalvar1);
             this.grbAcesso.Controls.Add(this.btnSomarK);
             this.grbAcesso.Controls.Add(this.btnExibirInfo);
             this.grbAcesso.Controls.Add(this.btnZerar1);
@@ -250,15 +255,39 @@
             this.grbAcesso.Controls.Add(this.label2);
             this.grbAcesso.Controls.Add(this.txtValor1);
             this.grbAcesso.Controls.Add(this.ndColuna);
+            this.grbAcesso.Enabled = false;
             this.grbAcesso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grbAcesso.Location = new System.Drawing.Point(848, 98);
+            this.grbAcesso.Location = new System.Drawing.Point(848, 50);
             this.grbAcesso.Margin = new System.Windows.Forms.Padding(5);
             this.grbAcesso.Name = "grbAcesso";
             this.grbAcesso.Padding = new System.Windows.Forms.Padding(5);
-            this.grbAcesso.Size = new System.Drawing.Size(333, 242);
+            this.grbAcesso.Size = new System.Drawing.Size(333, 290);
             this.grbAcesso.TabIndex = 11;
             this.grbAcesso.TabStop = false;
             this.grbAcesso.Text = "Matriz 1:";
+            // 
+            // btnSalvar1
+            // 
+            this.btnSalvar1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSalvar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar1.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnSalvar1.FlatAppearance.BorderSize = 3;
+            this.btnSalvar1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
+            this.btnSalvar1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
+            this.btnSalvar1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnSalvar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar1.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar1.Location = new System.Drawing.Point(26, 241);
+            this.btnSalvar1.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalvar1.Name = "btnSalvar1";
+            this.btnSalvar1.Size = new System.Drawing.Size(284, 38);
+            this.btnSalvar1.TabIndex = 15;
+            this.btnSalvar1.Text = "Salvar Matriz 1";
+            this.btnSalvar1.UseVisualStyleBackColor = false;
+            this.btnSalvar1.Click += new System.EventHandler(this.btnSalvar1_Click);
+            this.btnSalvar1.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
+            this.btnSalvar1.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
             // 
             // btnSomarK
             // 
@@ -328,6 +357,10 @@
             this.btnZerar1.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
             this.btnZerar1.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
             // 
+            // dlgArquivo
+            // 
+            this.dlgArquivo.Filter = "Text|*.txt|All|*.*";
+            // 
             // dgvResultado
             // 
             this.dgvResultado.AllowUserToAddRows = false;
@@ -338,26 +371,27 @@
             this.dgvResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResultado.ColumnHeadersVisible = false;
             this.dgvResultado.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvResultado.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvResultado.DefaultCellStyle = dataGridViewCellStyle29;
             this.dgvResultado.Location = new System.Drawing.Point(14, 389);
             this.dgvResultado.Margin = new System.Windows.Forms.Padding(5);
             this.dgvResultado.Name = "dgvResultado";
             this.dgvResultado.ReadOnly = true;
             this.dgvResultado.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvResultado.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvResultado.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvResultado.Size = new System.Drawing.Size(400, 242);
             this.dgvResultado.TabIndex = 13;
             // 
             // grbAcesso2
             // 
+            this.grbAcesso2.Controls.Add(this.btnSalvar2);
             this.grbAcesso2.Controls.Add(this.btnSomaMatriz2);
             this.grbAcesso2.Controls.Add(this.btnZerar2);
             this.grbAcesso2.Controls.Add(this.btnExibirInfo2);
@@ -367,15 +401,39 @@
             this.grbAcesso2.Controls.Add(this.label8);
             this.grbAcesso2.Controls.Add(this.txtValor2);
             this.grbAcesso2.Controls.Add(this.ndColunaMatriz2);
+            this.grbAcesso2.Enabled = false;
             this.grbAcesso2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grbAcesso2.Location = new System.Drawing.Point(848, 389);
+            this.grbAcesso2.Location = new System.Drawing.Point(848, 350);
             this.grbAcesso2.Margin = new System.Windows.Forms.Padding(5);
             this.grbAcesso2.Name = "grbAcesso2";
             this.grbAcesso2.Padding = new System.Windows.Forms.Padding(5);
-            this.grbAcesso2.Size = new System.Drawing.Size(333, 242);
+            this.grbAcesso2.Size = new System.Drawing.Size(333, 281);
             this.grbAcesso2.TabIndex = 12;
             this.grbAcesso2.TabStop = false;
             this.grbAcesso2.Text = "Matriz 2:";
+            // 
+            // btnSalvar2
+            // 
+            this.btnSalvar2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSalvar2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar2.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnSalvar2.FlatAppearance.BorderSize = 3;
+            this.btnSalvar2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
+            this.btnSalvar2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
+            this.btnSalvar2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnSalvar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar2.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar2.Location = new System.Drawing.Point(26, 232);
+            this.btnSalvar2.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalvar2.Name = "btnSalvar2";
+            this.btnSalvar2.Size = new System.Drawing.Size(284, 38);
+            this.btnSalvar2.TabIndex = 16;
+            this.btnSalvar2.Text = "Salvar Matriz 2";
+            this.btnSalvar2.UseVisualStyleBackColor = false;
+            this.btnSalvar2.Click += new System.EventHandler(this.btnSalvar2_Click);
+            this.btnSalvar2.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
+            this.btnSalvar2.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
             // 
             // btnSomaMatriz2
             // 
@@ -501,8 +559,10 @@
             // 
             // grbOperacao
             // 
-            this.grbOperacao.Controls.Add(this.btnMultiplicarMatrizes);
+            this.grbOperacao.Controls.Add(this.btnSalvarResultado);
             this.grbOperacao.Controls.Add(this.btnSomarMatrizes);
+            this.grbOperacao.Controls.Add(this.btnMultiplicarMatrizes);
+            this.grbOperacao.Enabled = false;
             this.grbOperacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbOperacao.Location = new System.Drawing.Point(430, 438);
             this.grbOperacao.Margin = new System.Windows.Forms.Padding(5);
@@ -513,28 +573,28 @@
             this.grbOperacao.TabStop = false;
             this.grbOperacao.Text = "Operações com Matrizes";
             // 
-            // btnMultiplicarMatrizes
+            // btnSalvarResultado
             // 
-            this.btnMultiplicarMatrizes.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnMultiplicarMatrizes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMultiplicarMatrizes.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
-            this.btnMultiplicarMatrizes.FlatAppearance.BorderSize = 3;
-            this.btnMultiplicarMatrizes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
-            this.btnMultiplicarMatrizes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
-            this.btnMultiplicarMatrizes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
-            this.btnMultiplicarMatrizes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMultiplicarMatrizes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiplicarMatrizes.ForeColor = System.Drawing.Color.White;
-            this.btnMultiplicarMatrizes.Location = new System.Drawing.Point(52, 55);
-            this.btnMultiplicarMatrizes.Margin = new System.Windows.Forms.Padding(5);
-            this.btnMultiplicarMatrizes.Name = "btnMultiplicarMatrizes";
-            this.btnMultiplicarMatrizes.Size = new System.Drawing.Size(284, 37);
-            this.btnMultiplicarMatrizes.TabIndex = 11;
-            this.btnMultiplicarMatrizes.Text = "Multiplicar Matrizes";
-            this.btnMultiplicarMatrizes.UseVisualStyleBackColor = false;
-            this.btnMultiplicarMatrizes.Click += new System.EventHandler(this.btnMultiplicarMatrizes_Click);
-            this.btnMultiplicarMatrizes.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
-            this.btnMultiplicarMatrizes.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
+            this.btnSalvarResultado.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnSalvarResultado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvarResultado.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnSalvarResultado.FlatAppearance.BorderSize = 3;
+            this.btnSalvarResultado.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
+            this.btnSalvarResultado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
+            this.btnSalvarResultado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnSalvarResultado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvarResultado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarResultado.ForeColor = System.Drawing.Color.White;
+            this.btnSalvarResultado.Location = new System.Drawing.Point(52, 134);
+            this.btnSalvarResultado.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalvarResultado.Name = "btnSalvarResultado";
+            this.btnSalvarResultado.Size = new System.Drawing.Size(284, 38);
+            this.btnSalvarResultado.TabIndex = 17;
+            this.btnSalvarResultado.Text = "Salvar Resultado";
+            this.btnSalvarResultado.UseVisualStyleBackColor = false;
+            this.btnSalvarResultado.Click += new System.EventHandler(this.btnSalvarResultado_Click);
+            this.btnSalvarResultado.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
+            this.btnSalvarResultado.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
             // 
             // btnSomarMatrizes
             // 
@@ -548,7 +608,7 @@
             this.btnSomarMatrizes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSomarMatrizes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSomarMatrizes.ForeColor = System.Drawing.Color.White;
-            this.btnSomarMatrizes.Location = new System.Drawing.Point(52, 111);
+            this.btnSomarMatrizes.Location = new System.Drawing.Point(52, 87);
             this.btnSomarMatrizes.Margin = new System.Windows.Forms.Padding(5);
             this.btnSomarMatrizes.Name = "btnSomarMatrizes";
             this.btnSomarMatrizes.Size = new System.Drawing.Size(284, 37);
@@ -558,6 +618,29 @@
             this.btnSomarMatrizes.Click += new System.EventHandler(this.btnSomarMatrizes_Click);
             this.btnSomarMatrizes.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
             this.btnSomarMatrizes.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
+            // 
+            // btnMultiplicarMatrizes
+            // 
+            this.btnMultiplicarMatrizes.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnMultiplicarMatrizes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMultiplicarMatrizes.FlatAppearance.BorderColor = System.Drawing.Color.DarkCyan;
+            this.btnMultiplicarMatrizes.FlatAppearance.BorderSize = 3;
+            this.btnMultiplicarMatrizes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
+            this.btnMultiplicarMatrizes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CadetBlue;
+            this.btnMultiplicarMatrizes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.btnMultiplicarMatrizes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMultiplicarMatrizes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMultiplicarMatrizes.ForeColor = System.Drawing.Color.White;
+            this.btnMultiplicarMatrizes.Location = new System.Drawing.Point(52, 40);
+            this.btnMultiplicarMatrizes.Margin = new System.Windows.Forms.Padding(5);
+            this.btnMultiplicarMatrizes.Name = "btnMultiplicarMatrizes";
+            this.btnMultiplicarMatrizes.Size = new System.Drawing.Size(284, 37);
+            this.btnMultiplicarMatrizes.TabIndex = 11;
+            this.btnMultiplicarMatrizes.Text = "Multiplicar Matrizes";
+            this.btnMultiplicarMatrizes.UseVisualStyleBackColor = false;
+            this.btnMultiplicarMatrizes.Click += new System.EventHandler(this.btnMultiplicarMatrizes_Click);
+            this.btnMultiplicarMatrizes.MouseEnter += new System.EventHandler(this.btnLerMatriz1_MouseEnter);
+            this.btnMultiplicarMatrizes.MouseLeave += new System.EventHandler(this.btnLerMatriz1_MouseLeave);
             // 
             // lblInstrucoes
             // 
@@ -597,20 +680,26 @@
             this.lblMatriz2.Size = new System.Drawing.Size(0, 19);
             this.lblMatriz2.TabIndex = 17;
             // 
+            // sfdArquivo
+            // 
+            this.sfdArquivo.DefaultExt = "txt";
+            this.sfdArquivo.FileName = "Digite o Nome do Arquivo";
+            this.sfdArquivo.Filter = "Text|*.txt|All|*.*";
+            // 
             // frmMatrizEsparsa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ClientSize = new System.Drawing.Size(1219, 634);
+            this.Controls.Add(this.grbAcesso2);
+            this.Controls.Add(this.grbAcesso);
             this.Controls.Add(this.lblMatriz2);
             this.Controls.Add(this.lbMatriz);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblInstrucoes);
             this.Controls.Add(this.grbOperacao);
-            this.Controls.Add(this.grbAcesso2);
             this.Controls.Add(this.dgvResultado);
-            this.Controls.Add(this.grbAcesso);
             this.Controls.Add(this.btnLerMatriz2);
             this.Controls.Add(this.dgvExibicao2);
             this.Controls.Add(this.btnLerMatriz1);
@@ -672,6 +761,10 @@
         private System.Windows.Forms.Button btnExibirInfo2;
         private System.Windows.Forms.Button btnMultiplicarMatrizes;
         private System.Windows.Forms.Button btnSomarMatrizes;
+        private System.Windows.Forms.Button btnSalvar1;
+        private System.Windows.Forms.Button btnSalvar2;
+        private System.Windows.Forms.Button btnSalvarResultado;
+        private System.Windows.Forms.SaveFileDialog sfdArquivo;
     }
 }
 
