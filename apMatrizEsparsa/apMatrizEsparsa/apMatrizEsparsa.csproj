@@ -84,6 +84,8 @@
     <Content Include="MatrizEsparsa1.txt" />
     <Content Include="MatrizEsparsa2.txt" />
     <Content Include="MatrizEsparsa3.txt" />
+    <Content Include="MatrizEsparsa4.txt" />
+    <Content Include="MatrizEsparsa5.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
